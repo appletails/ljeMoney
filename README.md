@@ -19,9 +19,9 @@
     ```
     用于盛放页面中所有用到组件的文件夹，其中 ItemPC.vue 是无用组件
     ```
-    所有组件的结构都肥肠简单，需要特别介绍的是 ==UserItem.vue== 
+    所有组件的结构都肥肠简单，需要特别介绍的是 UserItem.vue 
     
-    该组件通过对 ==$route.params.id== 的判断来显示不同的内容和对应内容的弹窗
+    该组件通过对 $route.params.id 的判断来显示不同的内容和对应内容的弹窗
 - **/lib**
     ```
     用于盛放静态数据的文件夹，没有数据接口时会使用静态数据
@@ -52,8 +52,8 @@
 # 自行使用的配置方法
 
 - 这是基于node和vue的前端页面，请确保安装了node和vue
-- 自行搜索自己的 ==to_user_id== 并替换到 ==/assets/js/api== 下的 ==getAllDetail== 的参数上即可
-- 若你没有自行整理的静态数据，则删除 ==Home.vue== 下的导航栏，再删除 ==router/index.js== 里的关于==more.vue==的路由信息,删除more.vue文件
+- 自行搜索自己的 to_user_id 并替换到 /assets/js/api 下的 getAllDetail 的参数上即可
+- 若你没有自行整理的静态数据，则删除 Home.vue 下的导航栏，再删除 router/index.js 里的关于more.vue的路由信息,删除more.vue文件
 
 ```
 到这里基本修改好了，至于图片自己找找链接换掉就可以了
