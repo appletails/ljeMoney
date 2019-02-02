@@ -1,0 +1,223 @@
+@charset "utf-8";
+/* 注册颜色 */
+$bgcolor:#f8f8f8;
+
+$pink:#F56C6C;
+
+$Primary:#3CC6ED;
+$DarkPrimary:#3D9DD1;
+
+$Info:#909399;
+$Success:#A5D9A1;
+$Warning:#FFB750;
+$Error:#FC4747;
+
+$font1:#303133;
+$font2:#606266;
+$font3:#909399;
+$font4:#C0C4CC;
+
+$border1:#DCDFE6;
+$border2:#E4E7ED;
+$border3:#EBEEF5;
+$border4:#F2F6FC;
+
+/* 定义比例 */
+@function px2rem($px) {
+  @return $px / 75 * 0.5rem;
+}
+
+/* 设置初始信息 */
+html {overflow-y: auto;background: $bgcolor;margin: 0 auto;} 
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0; font-family: Microsoft YaHei;} 
+body {background-color: $bgcolor !important;color:$font2;font-size:px2rem(24) !important;font-family: Verdana, Arial, Helvetica, sans-serif} 
+td,th,caption { font-size:px2rem(24); } 
+h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:px2rem(24); } 
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;} 
+a { color:$font2; text-decoration:none; } 
+img { border:none; } 
+ol,ul,li { list-style:none; } 
+input, textarea, select, button { font:px2rem(28) Microsoft YaHei, Verdana,Helvetica,Arial,sans-serif;} 
+[type=button],[type=submit]{cursor: pointer;}
+table { border-collapse:collapse; } 
+.clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;} 
+.clearfix { *zoom:1; }*{margin: 0;padding: 0;box-sizing: border-box; font-family: Microsoft YaHei, Verdana,Helvetica,Arial,sans-serif;} 
+input:focus,textarea:focus,select:focus,button:focus{outline:none;}
+
+.topMax{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+.footMax{
+  z-index: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+div.h90{
+  height: px2rem(90);
+  max-height: 48px;
+}
+
+.item___box{
+  padding: px2rem(20) px2rem(20) 0;
+  margin-bottom: px2rem(20);
+}
+@mixin bgImg{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* 阴影 */
+@mixin Card{
+  background-color: #fff;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+}
+/* 局中绝对定位 */
+@mixin absolute{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+/* 弹性盒子 */
+@mixin flex{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items:center;
+  flex-direction: initial;
+}
+
+// img去色
+@mixin img_gray { 
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+    opacity: 0.6;
+}
+// 文本溢出隐藏
+@mixin textflow {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@keyframes anOp1{
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+// 页面切换动画
+.fadeIn-enter-active {
+  animation: fadeIn .3s linear;
+}
+.fadeIn-leave-active {
+  animation: fadeOut .3s linear;
+}
+.fadeOut-enter-active {
+  animation: fadeOut .3s reverse linear;
+}
+.fadeOut-leave-active {
+  animation: fadeIn .3s reverse linear;
+}
+@keyframes fadeIn {
+  0% {
+    transform: translateX(100%);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+  }
+  100% {
+    transform: translateX(0);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    transform: translateX(0);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+  100% {
+    transform: translateX(-100%);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// 弹窗show动画
+.winShow-enter-active {
+  animation: winShow .3s;
+}
+.winShow-leave-active {
+  animation: winShow .3s reverse;
+}
+@keyframes winShow {
+  0% {
+    opacity: 0;
+    transform: scale(0.2)
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1)
+  }
+}
+// 弹窗show动画
+.opacity-enter-active {
+  animation: opacity linear .3s;
+}
+.opacity-leave-active {
+  animation: opacity linear .3s reverse;
+}
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+// loading
+.demo-spin-icon-load{
+    animation: ani-demo-spin 1s linear infinite;
+}
+@keyframes ani-demo-spin {
+    from { transform: rotate(0deg);}
+    50%  { transform: rotate(180deg);}
+    to   { transform: rotate(360deg);}
+}
+
+// iview样式重置
+// .ivu-layout,
+// .ivu-layout-header,
+// .ivu-layout-sider,
+// .ivu-card-body {
+//   background-color: transparent !important;
+// }
+.ivu-card{
+  font-size: 12px;
+  overflow: hidden;
+}
+.ivu-icon{
+  font-family: Ionicons;
+}
+.ivu-btn-info{
+	background-color: $Primary;
+	border-color: $Primary;
+}
+.ivu-btn-error{
+	background-color: $Error;
+	border-color: $Error;
+}
