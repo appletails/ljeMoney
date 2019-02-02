@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- 自行修改链接连接 -->
         <a href="https://weibo.com/u/5863012981" target="_blank">
             <div class="banner"></div>
         </a>
@@ -8,6 +9,7 @@
                 <Icon type="ios-more" size="16" />
             </span>
         </TitlePhone>
+        <!-- 导航栏，没有静态资源可删除 -->
         <div class="item___box nav">
             <router-link class="line" :to="{name:$Project[0].list[0].name,params:$Project[0].list[0].params}">
                 <p>{{$Project[0].list[0].title}}</p>
