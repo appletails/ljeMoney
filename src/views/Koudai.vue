@@ -13,7 +13,7 @@
 			<div class="listBox">
 				<p class="line">敏感字：</p>
 				<p v-if="list.length" v-html="box"></p>
-				<p v-else>暂无敏感词1</p>
+				<p v-else>暂无敏感词</p>
 			</div>
 		</div>
 	</div>
