@@ -134,6 +134,12 @@ export async function koudai(cont) {
 	return await axios.get('http://ban2.lovelyctx.com/api',{params:{'content':cont}})
 }
 
+// 获取idft留言板
+export async function getIdft() {
+	let result = await axios.get(url('api/DataView/Data'))
+	return result.data
+}
+
 // 鸡汤接口
 var soupsDate = null
 export async function soups(){

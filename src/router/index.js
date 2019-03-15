@@ -1,13 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/views/Home'
-import Rank from '@/views/Rank'
-import Sweet from '@/views/Sweet'
-import AllDetail from '@/views/AllDetail'
-import Koudai from '@/views/Koudai'
-import UserList from '@/views/UserList'
-import CardList from '@/views/CardList'
-import More from '@/views/More'
 
 Vue.use(Router)
 
@@ -16,73 +8,82 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home,
-      meta:{
-        index:0,
+      component: resolve => require(['@/views/Home'], resolve),
+      meta: {
+        index: 0,
         title: '恩の金库'
       }
     },
     {
       path: '/allDetail',
       name: 'allDetail',
-      component: AllDetail,
-      meta:{
-        index:1,
+      component: resolve => require(['@/views/AllDetail'], resolve),
+      meta: {
+        index: 1,
         title: '全部项目'
       }
     },
     {
       path: '/more',
       name: 'more',
-      component: More,
-      meta:{
-        index:2,
+      component: resolve => require(['@/views/More'], resolve),
+      meta: {
+        index: 2,
         title: '更多菜单'
       }
     },
     {
       path: '/rank/:id',
       name: 'rank',
-      component: Rank,
-      meta:{
-        index:2,
+      component: resolve => require(['@/views/Rank'], resolve),
+      meta: {
+        index: 2,
         title: '集资详情'
       }
     },
     {
       path: '/sweet',
       name: 'sweet',
-      component: Sweet,
-      meta:{
-        index:3,
+      component: resolve => require(['@/views/Sweet'], resolve),
+      meta: {
+        index: 3,
         title: '每日一语'
       }
     },
     {
       path: '/userList/:id',
       name: 'userList',
-      component: UserList,
-      meta:{
-        index:3,
+      component: resolve => require(['@/views/UserList'], resolve),
+      meta: {
+        index: 3,
         title: '聚聚详情'
       }
     },
     {
       path: '/cardList/:vid',
       name: 'cardList',
-      component: CardList,
-      meta:{
-        index:4,
+      component: resolve => require(['@/views/CardList'], resolve),
+      meta: {
+        index: 4,
         title: '抽卡详情'
       }
     },
     {
       path: '/koudai',
       name: 'koudai',
-      component: Koudai,
-      meta:{
-        index:5,
+      component: resolve => require(['@/views/Koudai'], resolve),
+      meta: {
+        index: 5,
         title: '口袋敏感词检测'
+      }
+    },
+    {
+      path: '/DataView',
+      name: 'DataView',
+      component: resolve => require(['@/views/DataView'], resolve),
+      meta: {
+        index: 6,
+        title: '折线图'
       }
     }
   ]
