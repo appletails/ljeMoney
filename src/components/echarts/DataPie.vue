@@ -5,7 +5,6 @@
   </div>
 </template>
 <script>
-import $echarts from "../../static/echarts/echarts.min.js";
 import { getIdft } from "@/assets/js/api";
 export default {
   name: "DataPie",
@@ -14,21 +13,17 @@ export default {
       color: {
         "458335": "#ff8162",
         "614728": "#fb3569",
-        "614733": "#729d39",
-        "594005": "#0ea5c6",
         "608997": "#6927ff"
       },
       idol: {
         "458335": "李慧",
         "614728": "雷宇霄",
-        "614733": "谯玉珍",
-        "594005": "熊沁娴",
         "608997": "司珀琳"
       }
     };
   },
   async mounted() {
-    let myChart = $echarts.init(document.getElementById("dataB"));
+    let myChart = this.$echarts.init(document.getElementById("dataB"));
     this.dataIdft = await getIdft();
     let dataV = [];
     let data = this.dataIdft.data;

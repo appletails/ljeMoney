@@ -12,9 +12,9 @@
 </template>
 <script>
 import { getIdft } from "@/assets/js/api";
-import DataLine from "@/components/DataLine";
-import DataPie from "@/components/DataPie";
-import DataBar from "@/components/DataBar";
+import DataLine from "@/components/echarts/DataLine";
+import DataPie from "@/components/echarts/DataPie";
+import DataBar from "@/components/echarts/DataBar";
 export default {
   components: {
     DataLine,

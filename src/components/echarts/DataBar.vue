@@ -1,45 +1,44 @@
 <template>
   <div class="box">
-    <div class="title">Idft口袋留言榜御三家折线图</div>
-    <div id="dataV"></div>
+    <div class="title">Idft口袋留言御三家增长值柱状图</div>
+    <div id="dataC"></div>
   </div>
 </template>
 <script>
-import $echarts from "../../static/echarts/echarts.min.js";
 import { getIdft } from "@/assets/js/api";
 export default {
-  name: "DataLine",
+  name: "DataBar",
   data() {
     return {
       color: {
         "458335": "#ff8162",
         "614728": "#fb3569",
-        "614733": "#729d39",
-        "594005": "#0ea5c6",
         "608997": "#6927ff"
       },
       idol: {
         "458335": "李慧",
         "614728": "雷宇霄",
-        "614733": "谯玉珍",
-        "594005": "熊沁娴",
         "608997": "司珀琳"
       }
     };
   },
   async mounted() {
-    // 定义一个盛放图标的容器
-    let myChart = $echarts.init(document.getElementById("dataV"));
-    // 获取数据
+    let myChart = this.$echarts.init(document.getElementById("dataC"));
     this.dataIdft = await getIdft();
-    let dataV = []; //定义处理后盛放数据的容器
+    let dataV = [];
     let data = this.dataIdft.data;
     // 处理dataV数据
     for (let item in data) {
+      let valArr = data[item].map( (val,i) =>{
+        if(i){
+          return data[item][i] - data[item][i-1]
+        }
+      }).filter( (val,i) => i)
+      console.log(valArr)
       let col = dataV.push({
         name: this.idol[item],
-        type: "line",
-        data: data[item],
+        type: "bar",
+        data: valArr,
         itemStyle: {
           color: this.color[item]
         }
@@ -52,12 +51,16 @@ export default {
         inactiveColor: "rgba(230, 230, 230, 0.2)",
         textStyle: {
           color: "#fff"
-        },
+        }
       },
       tooltip: {
         trigger: "axis",
+        axisPointer: {
+          type: "shadow"
+        },
         formatter: "{a0}: {c0}<br> {a2}: {c2}<br> {a1}: {c1}"
       },
+      barGap:0,
       xAxis: [
         {
           name: "时间",
@@ -81,7 +84,7 @@ export default {
               color: "white"
             }
           },
-          data: this.dataIdft.times
+          data: this.dataIdft.times.filter( (item,i) => i)
         }
       ],
       yAxis: [
@@ -106,7 +109,7 @@ export default {
               color: "white"
             }
           },
-          name: "留言数量",
+          name: "半小时增长量",
           type: "value"
         }
       ],
@@ -120,17 +123,17 @@ export default {
 </script>
 <style lang="scss" scoped>
 .box {
-  width: 100%;
   background: rgba(32, 32, 35, 0.5);
-  #dataV {
+  width: 680px;
+  #dataC {
     width: 100%;
-    height: 360px;
+    height: 300px;
   }
-  .title{
-    color:#fff;
-    font-size: 24px;
+  .title {
+    color: #fff;
+    font-size: 16px;
     text-align: center;
-    padding-top: 20px;
+    padding: 20px 0;
   }
 }
 </style>
