@@ -1,6 +1,6 @@
 <template>
-  <div class="box">
-    <div class="title">Idft口袋留言御三家增长值柱状图</div>
+  <div class="box_bar">
+    <div class="title">Idft口袋留言御三家增长值</div>
     <div id="dataC"></div>
   </div>
 </template>
@@ -29,18 +29,24 @@ export default {
     let data = this.dataIdft.data;
     // 处理dataV数据
     for (let item in data) {
-      let valArr = data[item].map( (val,i) =>{
-        if(i){
-          return data[item][i] - data[item][i-1]
-        }
-      }).filter( (val,i) => i)
-      console.log(valArr)
+      let valArr = data[item]
+        .map((val, i) => {
+          if (i) {
+            return data[item][i] - data[item][i - 1];
+          }
+        })
+        .filter((val, i) => i);
+      console.log(valArr);
       let col = dataV.push({
         name: this.idol[item],
         type: "bar",
         data: valArr,
         itemStyle: {
           color: this.color[item]
+        },
+        label: {
+          show: true,
+          fontSize: "10"
         }
       });
     }
@@ -60,7 +66,7 @@ export default {
         },
         formatter: "{a0}: {c0}<br> {a2}: {c2}<br> {a1}: {c1}"
       },
-      barGap:0,
+      barGap: 0,
       xAxis: [
         {
           name: "时间",
@@ -84,7 +90,7 @@ export default {
               color: "white"
             }
           },
-          data: this.dataIdft.times.filter( (item,i) => i)
+          data: this.dataIdft.times.filter((item, i) => i)
         }
       ],
       yAxis: [
@@ -92,10 +98,11 @@ export default {
           axisLine: {
             show: false
           },
+          nameLocation: "end",
           nameTextStyle: {
             color: "#fff"
           },
-          nameGap: 20,
+          nameGap: 30,
           axisTick: {
             show: false
           },
@@ -107,6 +114,10 @@ export default {
           axisLabel: {
             textStyle: {
               color: "white"
+            },
+            formatter: function(data) {
+              console.log(data);
+              return data;
             }
           },
           name: "半小时增长量",
@@ -115,16 +126,25 @@ export default {
       ],
       series: dataV
     };
-
+    if (window.screen.width < 800) {
+      option.grid = {
+        left: "20%",
+        right: "15%"
+      };
+      option.yAxis[0].nameLocation = "center";
+      option.xAxis = [option.yAxis, (option.yAxis = option.xAxis)][0];
+    }
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
   }
 };
 </script>
 <style lang="scss" scoped>
-.box {
+.box_bar {
+  float: left;
   background: rgba(32, 32, 35, 0.5);
   width: 680px;
+  margin-bottom: 20px;
   #dataC {
     width: 100%;
     height: 300px;
@@ -134,6 +154,24 @@ export default {
     font-size: 16px;
     text-align: center;
     padding: 20px 0;
+  }
+}
+@media screen and (max-width: 800px) {
+  .box_bar {
+    margin: auto;
+    float: none;
+    width: 90%;
+    margin-bottom: 20px;
+    #dataC {
+      width: 100%;
+      height: 500px;
+    }
+    .title {
+      color: #fff;
+      font-size: 16px;
+      text-align: center;
+      padding: 20px 0;
+    }
   }
 }
 </style>

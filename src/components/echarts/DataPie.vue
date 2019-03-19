@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="box_pie">
     <div class="title">Idft口袋留言御三家分布图</div>
     <div id="dataB"></div>
   </div>
@@ -55,6 +55,8 @@ export default {
           type: "pie",
           data: dataV,
           label: {
+          show: true,
+          fontSize: "10",
             color: "#fff",
             position: "inside"
           }
@@ -68,18 +70,37 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.box {
+.box_pie {
+  float: right;
   background: rgba(32, 32, 35, 0.5);
   width: 300px;
+  margin-bottom: 20px;
   #dataB {
     width: 100%;
     height: 300px;
   }
-  .title{
-    color:#fff;
+  .title {
+    color: #fff;
     font-size: 16px;
     text-align: center;
     padding: 20px 0;
+  }
+}
+@media screen and (max-width: 800px) {
+  .box_pie {
+    float: none;
+    width: 90%;
+    margin: auto;
+    #dataB {
+      width: 100%;
+      height: 300px;
+    }
+    .title {
+      color: #fff;
+      font-size: 16px;
+      text-align: center;
+      padding: 20px 0;
+    }
   }
 }
 </style>

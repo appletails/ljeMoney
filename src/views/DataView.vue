@@ -1,13 +1,12 @@
 <template>
   <div>
     <div class="bg"></div>
-    <div class="main">
-      <div class="btm">
-        <DataPie />
-        <DataBar />
+    <div class="main_data">
+      <DataBar />
+      <DataPie />
+      <div class="clear"></div>
+      <DataLine v-if="wid>=800"/>
       </div>
-      <DataLine/>
-    </div>
   </div>
 </template>
 <script>
@@ -22,7 +21,9 @@ export default {
     DataPie
   },
   data() {
-    return {};
+    return {
+      wid:window.screen.width
+    };
   },
   methods: {},
   async created() {}
@@ -30,6 +31,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "@/assets/css/global.scss";
+.clear{clear: both;}
 .bg {
   width: 100%;
   position: fixed;
@@ -40,15 +42,12 @@ export default {
   background-size: cover;
   background-image: url(../assets/img/bg.jpg);
 }
-.main {
-  width: 1000px;
+.main_data {
+  max-width: 1000px;
+  width: 100%;
   margin: auto;
   padding: 30px 0;
   position: relative;
   z-index: 1;
-  .btm {
-    @include flex;
-    margin-bottom: 20px;
-  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="box_line">
     <div class="title">Idft口袋留言榜御三家折线图</div>
     <div id="dataV"></div>
   </div>
@@ -47,7 +47,7 @@ export default {
         inactiveColor: "rgba(230, 230, 230, 0.2)",
         textStyle: {
           color: "#fff"
-        },
+        }
       },
       tooltip: {
         trigger: "axis",
@@ -114,16 +114,16 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import '@/assets/css/global.scss';
-.box {
+@import "@/assets/css/global.scss";
+.box_line {
   width: 100%;
   background: rgba(32, 32, 35, 0.5);
   #dataV {
     width: 100%;
     height: 360px;
   }
-  .title{
-    color:#fff;
+  .title {
+    color: #fff;
     font-size: 24px;
     text-align: center;
     padding-top: 20px;
