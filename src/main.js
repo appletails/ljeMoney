@@ -33,7 +33,7 @@ Vue.prototype.$echarts = echarts
 
 /* eslint-disable no-new */
 import store from './store'//引入store
- 
+
 new Vue({
   el: '#app',
   router,

@@ -1,18 +1,18 @@
 import axios from 'axios'
 import MD5 from 'js-md5'
 
-var qs = require('qs');
+let qs = require('qs');
 
 //获得签名
 export function getSign(json) {
-	var keys = Object.keys(json).sort();
-	var str = "";
-	for (var i = 0; i < keys.length; i++) {
+	let keys = Object.keys(json).sort();
+	let str = "";
+	for (let i = 0; i < keys.length; i++) {
 		str += keys[i] + "=" + eval('json.' + keys[i]) + "&"
 	}
-	var md5String = encodeURI(str);
+	let md5String = encodeURI(str);
 	md5String += 'p=das41aq6'
-	var sign = MD5(md5String).toString(16).substring(5, 21)
+	let sign = MD5(md5String).toString(16).substring(5, 21)
 	return sign;
 }
 
@@ -73,12 +73,12 @@ export async function getRankings(pro_id,page,type) {
 }
 
 // 定义有一个请求json的url
-var url = function (api) {
+let url = function (api) {
 	return 'http://www.crean.top/' + api + '.json'
 }
 
 // 请求五选集资列表.json
-var UserFive = null
+let UserFive = null
 export async function getUserFive() {
 	if (UserFive) {
 		return UserFive
@@ -88,7 +88,7 @@ export async function getUserFive() {
 	return UserFive
 }
 // 请求生蛋列表.json
-var Birthday = null
+let Birthday = null
 export async function getBirthday() {
 	if (Birthday) {
 		return Birthday
@@ -98,7 +98,7 @@ export async function getBirthday() {
 	return Birthday
 }
 // 请求B50集资列表.json
-var UserSix = null
+let UserSix = null
 export async function getUserSix() {
 	if (UserSix) {
 		return UserSix
@@ -108,7 +108,7 @@ export async function getUserSix() {
 	return UserSix
 }
 // 请求B50抽卡列表.json
-var CardSix = null
+let CardSix = null
 export async function getCardSix() {
 	if (CardSix) {
 		return CardSix
@@ -118,7 +118,7 @@ export async function getCardSix() {
 	return CardSix
 }
 // 请求B50抽卡描述列表.json
-var CardChance = null
+let CardChance = null
 export async function getCardChance() {
 	if (CardChance) {
 		return CardChance
@@ -135,29 +135,33 @@ export async function koudai(cont) {
 }
 
 // 获取idft留言板
+let idft = null
 export async function getIdft() {
-	let result = await axios.get(url('api/DataView/Data'))
-	return result.data
+	if (!idft){
+		let result = await axios.get(url('api/DataView/Data'))
+		idft = result.data
+	}
+	return idft
 }
 
 // 鸡汤接口
-var soupsDate = null
+let soupsDate = null
 export async function soups(){
-    var date1 = new Date();
-	var date2 = new Date(date1);
+    let date1 = new Date();
+	let date2 = new Date(date1);
 	date2.setDate(date1.getDate() - 29);
-	var start = {
+	let start = {
 		year: date2.getFullYear().toString(),
 		month: ((date2.getMonth() + 1)<10?'0'+(date2.getMonth() + 1):(date2.getMonth() + 1)).toString(),
 		date: (date2.getDate()<10?'0'+date2.getDate():date2.getDate()).toString()
 	}
-	var startTime = start.year+start.month+start.date
-	var end = {
+	let startTime = start.year+start.month+start.date
+	let end = {
 		year: date1.getFullYear().toString(),
 		month: ((date1.getMonth() + 1)<10?'0'+(date1.getMonth() + 1):(date1.getMonth() + 1)).toString(),
 		date: (date1.getDate()<10?'0'+date1.getDate():date1.getDate()).toString()
 	}
-	var endTime = end.year+end.month+end.date
+	let endTime = end.year+end.month+end.date
 	if (soupsDate) {
 		return soupsDate
 	}else{

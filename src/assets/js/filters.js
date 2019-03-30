@@ -17,8 +17,19 @@ function parseFormatNum(number){
 
 }
 
+// 小时转换天数
+function timeChange(times){
+    if(times<24){
+        return `${times}小时`
+    }else{
+        let day = Math.floor(times/24)
+        let hours = times%24
+        return `${day}天${hours}小时` 
+    }
+}
 
 export{
     numToFixed,
-    parseFormatNum
+    parseFormatNum,
+    timeChange
 }

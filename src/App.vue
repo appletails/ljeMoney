@@ -11,6 +11,7 @@
 <script>
 import Heads from '@/components/Head'
 import Footer from '@/components/Footer'
+import { getIdft } from "@/assets/js/api";
 export default {
   name: 'App',
   components: {
@@ -23,7 +24,10 @@ export default {
       title: '恩の金库'
     }
   },
-  created() {
+  // 
+  async beforeCreate(){
+    let idftData = await getIdft();
+    this.$store.commit('GETIDFT',idftData)
   },
   watch: {
     $route(to, from) {

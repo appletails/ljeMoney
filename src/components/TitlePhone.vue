@@ -12,7 +12,7 @@ export default {
     props:{
         title:{ // 标题
             type:String,
-            default:'line'
+            default:'Line'
         },
         icon:{
             type:String,
