@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       fade: 'fadeIn',
-      title: '恩の金库'
+      title: '恩の宝库'
     }
   },
   // 

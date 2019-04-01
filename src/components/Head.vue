@@ -32,7 +32,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: '恩の金库'
+      default: '恩の宝库'
     }
   },
   data() {

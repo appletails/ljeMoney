@@ -11,7 +11,7 @@ export default new Router({
       component: resolve => require(['@/views/Home'], resolve),
       meta: {
         index: 0,
-        title: '恩の金库'
+        title: '恩の宝库'
       }
     },
     {
