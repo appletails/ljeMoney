@@ -28,9 +28,6 @@ Vue.prototype.$Modal = Modal
 import Project from '@/lib/global';
 Vue.prototype.$Project = Project
 
-import echarts from "../static/echarts/echarts.min.js";
-Vue.prototype.$echarts = echarts
-
 /* eslint-disable no-new */
 import store from './store'//引入store
 
