@@ -76,15 +76,6 @@ export default new Router({
         index: 5,
         title: '口袋敏感词检测'
       }
-    },
-    {
-      path: '/DataView',
-      name: 'DataView',
-      component: resolve => require(['@/views/DataView'], resolve),
-      meta: {
-        index: 6,
-        title: '折线图'
-      }
     }
   ]
 })
