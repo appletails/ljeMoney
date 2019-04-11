@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Heads :title="$route.meta.title"  v-if="$route.name != 'DataView'"/>
+    <Heads :title="$route.meta.title"  v-if="$route.name != '404'"/>
     <transition :name="fade">
       <router-view />
     </transition>

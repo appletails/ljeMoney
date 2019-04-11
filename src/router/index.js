@@ -14,7 +14,7 @@ export default new Router({
       name: '404',
       component: resolve => require(['@/views/404'], resolve),
       meta: {
-        index: 0,
+        index: 99,
         title: '恩の宝库'
       }
     },
