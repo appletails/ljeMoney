@@ -24,7 +24,7 @@ export default {
       title: '恩の宝库'
     }
   },
-  // 
+  // git test
   async beforeCreate(){
     let idftData = await getIdft();
     this.$store.commit('GETIDFT',idftData)
