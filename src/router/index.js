@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Not404 from '@/views/404';
+
 Vue.use(Router)
 
 export default new Router({
