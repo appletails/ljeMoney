@@ -1,10 +1,23 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from 'vue';
+import Router from 'vue-router';
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: "*",
+      redirect: '/404'
+    },
+    {
+      path: '/404',
+      name: '404',
+      component: resolve => require(['@/views/404'], resolve),
+      meta: {
+        index: 99,
+        title: '恩の宝库'
+      }
+    },
     {
       path: '/',
       name: 'home',
@@ -75,15 +88,6 @@ export default new Router({
       meta: {
         index: 5,
         title: '口袋敏感词检测'
-      }
-    },
-    {
-      path: '/DataView',
-      name: 'DataView',
-      component: resolve => require(['@/views/DataView'], resolve),
-      meta: {
-        index: 6,
-        title: '折线图'
       }
     }
   ]

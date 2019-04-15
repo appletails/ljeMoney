@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Heads :title="$route.meta.title"  v-if="$route.name != 'DataView'"/>
+    <Heads :title="$route.meta.title"  v-if="$route.name != '404'"/>
     <transition :name="fade">
       <router-view />
     </transition>
@@ -24,7 +24,7 @@ export default {
       title: '恩の宝库'
     }
   },
-  // 
+  // git test
   async beforeCreate(){
     let idftData = await getIdft();
     this.$store.commit('GETIDFT',idftData)
