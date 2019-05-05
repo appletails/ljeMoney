@@ -12,9 +12,6 @@ const mutations = {
     DETAIL(state,data){
         state.AllDetail = data
     },
-    GETIDFT(state,data){
-        state.idftData = data
-    }
 }
 
 const store = new Vuex.Store({ state, mutations });
