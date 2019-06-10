@@ -168,3 +168,14 @@ export async function soups() {
 		return soupsDate
 	}
 }
+
+// 请求一周总结
+let week = null
+export async function getWeek() {
+	if (week) {
+		return week
+	}
+	let result = await axios.get(url('api/week/data'))
+	week = result.data
+	return week
+}

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Heads :title="$route.meta.title"  v-if="$route.name != '404'"/>
+    <Heads :title="$route.meta.title"  v-if="$route.name != '404' && $route.name != 'week'"/>
     <transition :name="fade">
       <router-view />
     </transition>

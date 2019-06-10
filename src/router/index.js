@@ -88,6 +88,15 @@ export default new Router({
         index: 5,
         title: '口袋敏感词检测'
       }
+    },
+    {
+      path: '/week',
+      name: 'week',
+      component: resolve => require(['@/views/week'], resolve),
+      meta: {
+        index: 6,
+        title: '每周总结'
+      }
     }
   ]
 })
