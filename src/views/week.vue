@@ -122,7 +122,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '@/assets/css/global.scss';
-$orange: #fbb03b;
+$orange: #ff7b89;
 .week{
     background-color: #fff;
     padding: px2rem(18);
