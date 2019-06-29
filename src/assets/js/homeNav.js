@@ -40,7 +40,7 @@ const Project=[
         params:{}
       },
       {
-        title: '每日一语',
+        title: '土味情话',
         name: 'sweet',
         params:{}
       }
