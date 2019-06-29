@@ -1,8 +1,6 @@
 import axios from 'axios'
 import MD5 from 'js-md5'
 
-let qs = require('qs');
-
 //获得签名
 export function getSign(json) {
 	let keys = Object.keys(json).sort();
@@ -14,62 +12,6 @@ export function getSign(json) {
 	md5String += 'p=das41aq6'
 	let sign = MD5(md5String).toString(16).substring(5, 21)
 	return sign;
-}
-
-let AllDetail = null
-async function getDetail(page_index) {
-	let result = await axios.post(
-		'http://mapi.modian.com/v45/user/build_product_list',
-		qs.stringify({
-			'to_user_id': 1624675,
-			'json_type': 1,
-			'page_index': page_index,
-			'page_rows': 10
-		})
-	)
-	return result.data.data
-}
-// 获取所有摩点项目信息
-
-export async function getAllDetail() {
-	if (!AllDetail) {
-		let i = 0
-		let data = []
-		while(true){
-			let result = await getDetail(i)
-			if(result.length){
-				data = data.concat(result)
-				i += 10
-			}else{
-				break
-			}
-		}
-		AllDetail = data
-	}
-	return AllDetail
-}
-
-// 获得rank信息
-export async function getRankings(pro_id, page, type) {
-	let types = ""
-	if (type) {
-		types = "day"
-	} else {
-		types = "amount"
-	}
-	let result = await axios.post(
-		'http://mapi.modian.com/v45/product/backer_ranking_list',
-		qs.stringify({
-			"pro_id": pro_id,
-			"user_id": 0,
-			"json_type": 1,
-			"page_index": page,
-			"page_rows": 20,
-			"type": types
-
-		})
-	)
-	return result.data.data.ranking_list
 }
 
 // 定义有一个请求json的url
@@ -156,7 +98,7 @@ export async function soups() {
 		return soupsDate
 	} else {
 		soupsDate = await axios.get("http://api.fenfenriji.com/activity/wisdoms?start=" + startTime + "&end=" + endTime)
-		// console.log(soupsDate.data)
+		console.log(soupsDate.data[20].content)
 		soupsDate = soupsDate.data.reverse().map(item => {
 			item.date = {
 				year: item.date.substring(0, 4),

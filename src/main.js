@@ -25,7 +25,8 @@ Vue.prototype.$Modal = Modal
 
 // 暴露lib静态数据
 
-import Project from '@/lib/global';
+import Project from '@/assets/js/homeNav';
+console.log(Project)
 Vue.prototype.$Project = Project
 
 /* eslint-disable no-new */

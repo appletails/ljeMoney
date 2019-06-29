@@ -27,15 +27,6 @@ export default new Router({
       }
     },
     {
-      path: '/allDetail',
-      name: 'allDetail',
-      component: resolve => require(['@/views/AllDetail'], resolve),
-      meta: {
-        index: 1,
-        title: '全部项目'
-      }
-    },
-    {
       path: '/more',
       name: 'more',
       component: resolve => require(['@/views/More'], resolve),
@@ -45,21 +36,12 @@ export default new Router({
       }
     },
     {
-      path: '/rank/:id',
-      name: 'rank',
-      component: resolve => require(['@/views/Rank'], resolve),
-      meta: {
-        index: 2,
-        title: '集资详情'
-      }
-    },
-    {
       path: '/sweet',
       name: 'sweet',
       component: resolve => require(['@/views/Sweet'], resolve),
       meta: {
         index: 3,
-        title: '每日一语'
+        title: '土味情话'
       }
     },
     {

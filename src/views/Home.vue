@@ -4,6 +4,14 @@
         <a href="https://weibo.com/u/5863012981" target="_blank">
             <div class="banner"></div>
         </a>
+        <TitlePhone :title="'土味情话'">
+            <span slot="more" @click="$router.push('/sweet')">
+                <Icon type="ios-more" size="16" />
+            </span>
+        </TitlePhone>
+        <div class="item___box">
+            <OneCard :item="soupsDate" :types="false" @click.native="toSoup(soupsDate.id)" />
+        </div>
         <TitlePhone :title="'快速入口'" :icon="'md-bookmarks'" class="topTitle">
             <span slot="more" @click="$router.push('/more')">
                 <Icon type="ios-more" size="16" />
@@ -20,28 +28,12 @@
             <router-link class="line" :to="{name:$Project[1].list[0].name,params:$Project[1].list[0].params}">
                 <p>{{$Project[1].list[0].title}}</p>
             </router-link>
+            <router-link class="line" :to="{name:$Project[1].list[0].name,params:$Project[1].list[0].params}">
+                <p>{{$Project[1].list[1].title}}</p>
+            </router-link>
             <router-link class="line pink" :to="{name:'more'}">
                 More
             </router-link>
-        </div>
-        <TitlePhone :title="'每日一语'">
-            <span slot="more" @click="$router.push('/sweet')">
-                <Icon type="ios-more" size="16" />
-            </span>
-        </TitlePhone>
-        <div class="item___box">
-            <OneCard :item="soupsDate" :types="false" @click.native="toSoup(soupsDate.id)" />
-        </div>
-        <TitlePhone :title="'集资项目'" :icon="'md-clipboard'">
-            <span slot="more" @click="$router.push('/allDetail')">
-                <Icon type="ios-more" size="16" />
-            </span>
-        </TitlePhone>
-        <div class="loading" v-if="load">
-            <Icon type="ios-loading" size="18" class="demo-spin-icon-load" :color="'#5cadff'"></Icon>
-        </div>
-        <div class="item___box" v-else>
-            <Item v-for="(item,i) in AllDetail" :key="i" :item="item" v-if="i<5" />
         </div>
     </div>
 </template>
@@ -92,16 +84,7 @@ export default {
         var resultSoups = await soups()
         this.soupsDate = resultSoups[0]
         this.load = true
-        // 获取全部集资项目
-        let result = await getAllDetail()
-        this.$store.commit("DETAIL",result);
-        this.load = false
     },
-    computed:{
-        AllDetail(){
-            return this.$store.state.AllDetail
-        }
-    }
 }
 </script>
 <style lang="scss" scoped>
@@ -133,11 +116,12 @@ export default {
         justify-content: center;
         height: px2rem(170);
         background-color: $Primary;
-        width: px2rem(170);
+        width: 48.5%;
         color: #fff;
-        border-radius: 50%; // padding: px2rem(20);
+        border-radius: px2rem(8); // padding: px2rem(20);
         font-size: px2rem(24);
         text-align: center;
+        margin-bottom: px2rem(24);
         p {
             width: 80%;
             display: -webkit-box;
@@ -147,6 +131,7 @@ export default {
         }
         &.pink {
             background-color: $pink;
+            width: 100%;
         }
     }
 }

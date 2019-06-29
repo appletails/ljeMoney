@@ -3,17 +3,22 @@
     <div class="topMax">
       <slot name="left">
         <p class="left" v-if="$route.name != 'home'">
-          <Icon type="ios-arrow-back" size="24" @click="$router.go(-1)" />
+          <Icon type="ios-arrow-back" size="24" @click="$router.go(-1)"/>
         </p>
       </slot>
       <slot name="title">
-        <img  v-if="$route.name == 'home'" class="logo" src="../assets/img/logo.png" alt="logo" />
+        <img v-if="$route.name == 'home'" class="logo" src="../assets/img/logo.png" alt="logo">
         <p :class="['title',$route.name == 'home'?'lefts':'']">{{title}}</p>
       </slot>
       <slot name="right">
         <p class="right">
-          <span class="money" v-if="$route.name == 'home'">累计：{{allMoney | parseFormatNum}} ￥</span>
-          <img v-else class="logo" src="../assets/img/logo.png" alt="logo" @click="$router.push('/')"/>
+          <img
+            v-if="$route.name != 'home'"
+            class="logo"
+            src="../assets/img/logo.png"
+            alt="logo"
+            @click="$router.push('/')"
+          >
         </p>
       </slot>
     </div>
@@ -22,37 +27,23 @@
 </template>
 
 <script>
-import { getAllDetail } from '@/assets/js/api'
-import { parseFormatNum } from '@/assets/js/filters'
+import { getAllDetail } from "@/assets/js/api";
+import { parseFormatNum } from "@/assets/js/filters";
 export default {
-  name: 'Head',
+  name: "Head",
   filters: {
     parseFormatNum
   },
   props: {
     title: {
       type: String,
-      default: '恩の宝库'
-    }
-  },
-  data() {
-    return {
-      data: []
-    }
-  },
-  computed: {
-    allMoney: function() {
-      let money = 0
-      this.$store.state.AllDetail.map(item => {
-        money += parseFloat(item.backer_money)
-      })
-      return money
+      default: "恩の宝库"
     }
   }
-}
+};
 </script>
 <style lang="scss" scoped>
-@import '@/assets/css/global.scss';
+@import "@/assets/css/global.scss";
 
 .topMax {
   border-bottom: 1px solid $border1;
