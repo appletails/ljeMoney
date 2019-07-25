@@ -7,10 +7,10 @@
                     <b>口袋消息</b>/Pocket<span>////</span>
                 </div>
                 <div class="msg">
-                    <div class="line"><Icon type="md-star" class="icon"/>这周也是勤劳的一周呀，小唐一共在口袋发了<span>{{ALLNUMBER}}</span>条消息呢！</div>
-                    <div class="line"><Icon type="md-star" class="icon"/><span>{{MAN[1].dataTime[0] | dataFormate}}</span>号这天你没休息好吧，晚上<span>{{MAN[1].dataTime[1] | timeFormate}}</span>还在口袋发消息</div>
-                    <div class="line"><Icon type="md-star" class="icon"/><span>{{MAN[0].dataTime[0] | dataFormate}}</span>号似乎是很重要的日子，这天<span>{{MAN[0].dataTime[1] | timeFormate}}</span>就开始营业了呢</div>
-                    <div class="line"><Icon type="md-star" class="icon"/><span>{{DAY.day | dataFormate}}</span>这天好像肥肠想念大家，这天留言了<span>{{DAY.num}}</span>条呢！</div>
+                    <div class="line"><Icon type="md-star" class="icon"/>为了拉票辛苦了，这周忙里偷闲在口袋总共发了<span>{{ALLNUMBER}}</span>条消息呢！</div>
+                    <div class="line"><Icon type="md-star" class="icon"/><span>{{MAN[1].dataTime[0] | dataFormate}}</span>号这天应该排练很久，到晚上<span>{{MAN[1].dataTime[1] | timeFormate}}</span>才休息</div>
+                    <div class="line"><Icon type="md-star" class="icon"/><span>{{MAN[0].dataTime[0] | dataFormate}}</span>号是个充满活力的一天，这天<span>{{MAN[0].dataTime[1] | timeFormate}}</span>就开始营业了</div>
+                    <div class="line"><Icon type="md-star" class="icon"/><span>{{DAY.day | dataFormate}}</span>这天你有很多话想和大家说，那天留言了<span>{{DAY.num}}</span>条呢！</div>
                 </div>
             </section>
             <section class="pocket_msg">
@@ -19,7 +19,7 @@
                 </div>
                 <div class="msg">
                     <!-- <div class="line"><Icon type="md-images" class="icon"/>这一周的你有丢丢的倦怠了喽，一张皂片都没有分享~</div> -->
-                    <div class="line"><Icon type="md-images" class="icon"/>这周你在口袋分享了<span>{{IMAGENUM}}</span>张照片，真是一场视觉盛宴的感受呢！</div>
+                    <div class="line"><Icon type="md-images" class="icon"/>这周你在口袋分享了<span>{{IMAGENUM}}</span>张照片，每一张都写满了故事！</div>
                 </div>
             </section>
             <section class="pocket_pic">
@@ -45,7 +45,7 @@
                     <b>口袋翻牌</b>/Pocket<span>////</span>
                 </div>
                 <div class="msg">
-                    <div class="line"><Icon type="md-paper" class="icon"/>这周也有积极营业呢，总共在口袋翻牌了<span>{{REPLYNUM+FLIPCARD}}</span>次，占据了总留言的<span>{{REPLYS}}</span>呢！</div>
+                    <div class="line"><Icon type="md-paper" class="icon"/>这周你百忙之中还在口袋翻牌了<span>{{REPLYNUM+FLIPCARD}}</span>次，占据了总留言的<span>{{REPLYS}}</span>！好棒！</div>
                     <div class="line"><Icon type="md-paper" class="icon"/>这周共有<span>{{REPLY.user}}</span>位聚聚被翻牌了，好羡慕他们，最多的一位被翻了<span>{{REPLY.num}}</span>次呢</div>
                 </div>
             </section>
@@ -54,7 +54,7 @@
                     <b>其他消息</b>/Pocket<span>////</span>
                 </div>
                 <div class="msg">
-                    <div class="line"><Icon type="ios-film" class="icon"/>这周还发了<span>{{VIDEO}}</span>次小视频、<span>{{AUDIO}}</span>次语音和<span>{{LIVEPUSH}}</span>次直播/电台~继续加油哦~</div>
+                    <div class="line"><Icon type="ios-film" class="icon"/>这周还发了<span>{{VIDEO}}</span>次小视频、<span>{{AUDIO}}</span>次语音和<span>{{LIVEPUSH}}</span>次直播/电台~辛苦啦~</div>
                 </div>
             </section>
             <section class="wb_cont">
@@ -75,7 +75,7 @@ export default {
         timeFormate(times){
             if (!times) return;
             let value = times.split(":")
-            return `${value[0][0] == '0' ? value[0][1]: value[0]}点${value[1][0] == '0' ? value[1][1]: value[1]}分`
+            return `${value[0][0] == '0' ? value[0][1]: value[0]}点${value[1]}分`
         }
     },
     data() {
@@ -122,20 +122,25 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '@/assets/css/global.scss';
-$orange: #ff7b89;
+$orange: #4866e5;
 .week{
     background-color: #fff;
     padding: px2rem(18);
     .top{
         height: px2rem(780);
         .big_title{
-            background: url(../assets/img/big_title.png) center;
-            background-size: cover;
+            background-color:$orange;
+            background-image:url(../assets/img/big_title.png);
+            background-position-x: center;
+            background-position-Y: px2rem(56);
+            background-repeat: no-repeat;
+            background-size: 86%;
             width: px2rem(200);
             height: px2rem(780);
             float: left;
             margin-right: px2rem(10);
             position: relative;
+            border-radius: px2rem(20);
             span{
                 position: absolute;
                 top: px2rem(370);
@@ -148,6 +153,9 @@ $orange: #ff7b89;
             }
         }
         .pocket_msg{
+            border-radius: px2rem(10);
+            border: 1px solid $orange;
+            overflow: hidden;
             margin-left: px2rem(210);
             margin-bottom: px2rem(10);
             .title{
@@ -162,7 +170,6 @@ $orange: #ff7b89;
                 }
             }
             .msg{
-                border: 1px solid $orange;
                 padding-top: px2rem(8);
                 padding-left: px2rem(16);
                 padding-right: px2rem(16);
@@ -229,7 +236,9 @@ $orange: #ff7b89;
         .btm_msg{
             margin-right: px2rem(80);
             margin-bottom: px2rem(10);
-            // height: px2rem(175);
+            border-radius: px2rem(10);
+            border: 1px solid $orange;
+            overflow: hidden;
             .title{
                 width: 100%;
                 height: px2rem(60);
@@ -242,7 +251,6 @@ $orange: #ff7b89;
                 }
             }
             .msg{
-                border: 1px solid $orange;
                 padding-top: px2rem(14);
                 padding-left: px2rem(20);
                 padding-right: px2rem(20);
