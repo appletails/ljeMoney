@@ -41,7 +41,7 @@ export default new Router({
       component: resolve => require(['@/views/Sweet'], resolve),
       meta: {
         index: 3,
-        title: '土味情话'
+        title: '每日一语'
       }
     },
     {

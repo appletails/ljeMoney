@@ -4,15 +4,7 @@
         <a href="https://weibo.com/u/5863012981" target="_blank">
             <div class="banner"></div>
         </a>
-        <TitlePhone :title="'土味情话'">
-            <span slot="more" @click="$router.push('/sweet')">
-                <Icon type="ios-more" size="16" />
-            </span>
-        </TitlePhone>
-        <div class="item___box">
-            <OneCard :item="soupsDate" :types="false" @click.native="toSoup(soupsDate.id)" />
-        </div>
-        <TitlePhone :title="'快速入口'" :icon="'md-bookmarks'" class="topTitle">
+        <TitlePhone title="快速入口" :icon="'md-bookmarks'" class="topTitle">
             <span slot="more" @click="$router.push('/more')">
                 <Icon type="ios-more" size="16" />
             </span>
@@ -31,9 +23,14 @@
             <router-link class="line" :to="{name:$Project[1].list[0].name,params:$Project[1].list[0].params}">
                 <p>{{$Project[1].list[1].title}}</p>
             </router-link>
-            <router-link class="line pink" :to="{name:'more'}">
-                More
-            </router-link>
+        </div>
+        <TitlePhone title="每日一语">
+            <span slot="more" @click="$router.push('/sweet')">
+                <Icon type="ios-more" size="16" />
+            </span>
+        </TitlePhone>
+        <div class="item___box">
+            <OneCard :item="soupsDate" :types="false" @click.native="toSoup(soupsDate.id)" />
         </div>
     </div>
 </template>

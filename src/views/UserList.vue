@@ -29,7 +29,6 @@ export default {
                 break;
             case 'money':
                 this.list = await getUserSix()
-                console.log(this.list)
                 this.names = this.$Project[0].list[0]
                 break;
             case 'five':

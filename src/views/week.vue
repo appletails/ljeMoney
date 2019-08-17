@@ -7,10 +7,10 @@
                     <b>口袋消息</b>/Pocket<span>////</span>
                 </div>
                 <div class="msg">
-                    <div class="line"><Icon type="md-star" class="icon"/>这周也是勤劳的一周呀，小唐一共在口袋发了<span>{{ALLNUMBER}}</span>条消息呢！</div>
-                    <div class="line"><Icon type="md-star" class="icon"/><span>{{MAN[1].dataTime[0] | dataFormate}}</span>号这天你没休息好吧，晚上<span>{{MAN[1].dataTime[1] | timeFormate}}</span>还在口袋发消息</div>
-                    <div class="line"><Icon type="md-star" class="icon"/><span>{{MAN[0].dataTime[0] | dataFormate}}</span>号似乎是很重要的日子，这天<span>{{MAN[0].dataTime[1] | timeFormate}}</span>就开始营业了呢</div>
-                    <div class="line"><Icon type="md-star" class="icon"/><span>{{DAY.day | dataFormate}}</span>这天好像肥肠想念大家，这天留言了<span>{{DAY.num}}</span>条呢！</div>
+                    <div class="line"><Icon type="md-star" class="icon"/>又是愉快的一周呀，小唐一共在口袋发了<span>{{ALLNUMBER}}</span>条消息呢！</div>
+                    <div class="line"><Icon type="md-star" class="icon"/><span>{{MAN[1].dataTime[0] | dataFormate}}</span>号这天你究竟几点才休息呢，晚上<span>{{MAN[1].dataTime[1] | timeFormate}}</span>你还在口袋发消息</div>
+                    <div class="line"><Icon type="md-star" class="icon"/><span>{{MAN[0].dataTime[0] | dataFormate}}</span>号很勤快呀，这天<span>{{MAN[0].dataTime[1] | timeFormate}}</span>就开始营业了呢</div>
+                    <div class="line"><Icon type="md-star" class="icon"/><span>{{DAY.day | dataFormate}}</span>这天一定是肥肠想念大家，这天留言了<span>{{DAY.num}}</span>条呢！</div>
                 </div>
             </section>
             <section class="pocket_msg">
@@ -19,7 +19,7 @@
                 </div>
                 <div class="msg">
                     <!-- <div class="line"><Icon type="md-images" class="icon"/>这一周的你有丢丢的倦怠了喽，一张皂片都没有分享~</div> -->
-                    <div class="line"><Icon type="md-images" class="icon"/>这周你在口袋分享了<span>{{IMAGENUM}}</span>张照片，真是一场视觉盛宴的感受呢！</div>
+                    <div class="line"><Icon type="md-images" class="icon"/>这周你在口袋分享了<span>{{IMAGENUM}}</span>张照片，每一张都像是一场盛大的演出绚丽夺目！</div>
                 </div>
             </section>
             <section class="pocket_pic">

@@ -98,7 +98,6 @@ export async function soups() {
 		return soupsDate
 	} else {
 		soupsDate = await axios.get("http://api.fenfenriji.com/activity/wisdoms?start=" + startTime + "&end=" + endTime)
-		console.log(soupsDate.data[20].content)
 		soupsDate = soupsDate.data.reverse().map(item => {
 			item.date = {
 				year: item.date.substring(0, 4),
